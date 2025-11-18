@@ -1,69 +1,50 @@
 {
-  "on_learning_path_start": {
-    "description": "Triggered when user starts a learning path",
+  "on_learning_start": {
+    "description": "Triggered when user starts learning path",
     "actions": [
       {
         "type": "log",
-        "message": "Learning journey started. Stay consistent and review regularly."
+        "message": "🎉 Welcome to your Developer Roadmap journey! Consistency beats intensity."
       },
       {
-        "type": "set_context",
-        "context": {
-          "tracking": "enabled",
-          "milestone_notifications": "enabled"
-        }
+        "type": "track",
+        "metric": "learning_started",
+        "specialization": "dynamic"
       }
     ]
   },
-  "on_project_completion": {
-    "description": "Triggered when user completes a project",
+  "on_milestone_50_percent": {
+    "description": "Triggered at 50% completion",
     "actions": [
       {
-        "type": "log",
-        "message": "Project completed! Great work. Document your learning and consider sharing it."
+        "type": "celebrate",
+        "message": "🏆 Halfway there! You're building real momentum."
       },
       {
-        "type": "achievement",
-        "badge": "project-completed"
+        "type": "suggest_projects",
+        "difficulty": "intermediate"
+      }
+    ]
+  },
+  "on_milestone_100_percent": {
+    "description": "Triggered at 100% completion",
+    "actions": [
+      {
+        "type": "celebrate",
+        "message": "🌟 Mastery achieved! You've completed this track."
+      },
+      {
+        "type": "suggest_next_track",
+        "based_on": "learning_history"
       }
     ]
   },
   "on_skill_assessment": {
-    "description": "Triggered when user completes skill assessment",
+    "description": "Triggered after skill assessment",
     "actions": [
       {
-        "type": "generate_learning_plan",
-        "include": ["gap_analysis", "recommendations", "timeline"]
-      },
-      {
-        "type": "log",
-        "message": "Assessment complete. Your personalized learning plan is ready."
-      }
-    ]
-  },
-  "on_agent_selection": {
-    "description": "Triggered when user selects an agent for learning",
-    "actions": [
-      {
-        "type": "load_skill",
-        "skill_category": "dynamic"
-      },
-      {
-        "type": "log",
-        "message": "Agent selected. Beginning specialized learning path."
-      }
-    ]
-  },
-  "on_learning_milestone": {
-    "description": "Triggered at learning milestones (25%, 50%, 75%, 100%)",
-    "actions": [
-      {
-        "type": "celebrate",
-        "intensity": "proportional"
-      },
-      {
-        "type": "recommend_next_steps",
-        "based_on": "current_progress"
+        "type": "generate_recommendations",
+        "include": ["gap_analysis", "suggested_projects", "timeline"]
       }
     ]
   }

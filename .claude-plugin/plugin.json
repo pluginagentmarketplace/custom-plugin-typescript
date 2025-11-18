@@ -1,0 +1,112 @@
+{
+  "name": "developer-roadmap",
+  "displayName": "Developer Roadmap",
+  "version": "1.0.0",
+  "description": "Comprehensive learning paths and career guidance for developers across 7 specialization tracks with 65+ role variants",
+  "author": {
+    "name": "Developer Roadmap Community",
+    "url": "https://github.com/kamranahmedse/developer-roadmap"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/kamranahmedse/developer-roadmap",
+  "keywords": [
+    "roadmap",
+    "learning-path",
+    "development",
+    "careers",
+    "skills",
+    "training"
+  ],
+  "agents": [
+    {
+      "id": "frontend-ui-specialist",
+      "path": "agents/01-frontend-ui-specialist.md",
+      "name": "Frontend & UI Specialist"
+    },
+    {
+      "id": "backend-api-architect",
+      "path": "agents/02-backend-api-architect.md",
+      "name": "Backend & API Architect"
+    },
+    {
+      "id": "devops-infrastructure",
+      "path": "agents/03-devops-infrastructure.md",
+      "name": "DevOps & Infrastructure"
+    },
+    {
+      "id": "database-specialist",
+      "path": "agents/04-database-specialist.md",
+      "name": "Database & Data Specialist"
+    },
+    {
+      "id": "architecture-systems",
+      "path": "agents/05-architecture-systems.md",
+      "name": "Architecture & Systems Design"
+    },
+    {
+      "id": "security-best-practices",
+      "path": "agents/06-security-best-practices.md",
+      "name": "Security & Best Practices"
+    },
+    {
+      "id": "emerging-technologies",
+      "path": "agents/07-emerging-technologies.md",
+      "name": "Emerging Technologies & AI"
+    }
+  ],
+  "commands": [
+    {
+      "name": "learn",
+      "path": "commands/learn.md",
+      "description": "Start your learning journey with personalized roadmap selection"
+    },
+    {
+      "name": "browse-agent",
+      "path": "commands/browse-agent.md",
+      "description": "Explore all 7 specialization agents and their capabilities"
+    },
+    {
+      "name": "assess",
+      "path": "commands/assess.md",
+      "description": "Evaluate your current skills and knowledge level"
+    },
+    {
+      "name": "project-guide",
+      "path": "commands/project-guide.md",
+      "description": "Access hands-on projects aligned with your learning path"
+    }
+  ],
+  "skills": [
+    {
+      "id": "frontend-skills",
+      "path": "skills/frontend/SKILL.md"
+    },
+    {
+      "id": "backend-skills",
+      "path": "skills/backend/SKILL.md"
+    },
+    {
+      "id": "devops-skills",
+      "path": "skills/devops/SKILL.md"
+    },
+    {
+      "id": "database-skills",
+      "path": "skills/databases/SKILL.md"
+    },
+    {
+      "id": "architecture-skills",
+      "path": "skills/architecture/SKILL.md"
+    },
+    {
+      "id": "security-skills",
+      "path": "skills/security/SKILL.md"
+    },
+    {
+      "id": "emerging-skills",
+      "path": "skills/emerging/SKILL.md"
+    }
+  ],
+  "hooks": {
+    "configPath": "hooks/hooks.json"
+  }
+}

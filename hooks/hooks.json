@@ -1,0 +1,70 @@
+{
+  "on_learning_path_start": {
+    "description": "Triggered when user starts a learning path",
+    "actions": [
+      {
+        "type": "log",
+        "message": "Learning journey started. Stay consistent and review regularly."
+      },
+      {
+        "type": "set_context",
+        "context": {
+          "tracking": "enabled",
+          "milestone_notifications": "enabled"
+        }
+      }
+    ]
+  },
+  "on_project_completion": {
+    "description": "Triggered when user completes a project",
+    "actions": [
+      {
+        "type": "log",
+        "message": "Project completed! Great work. Document your learning and consider sharing it."
+      },
+      {
+        "type": "achievement",
+        "badge": "project-completed"
+      }
+    ]
+  },
+  "on_skill_assessment": {
+    "description": "Triggered when user completes skill assessment",
+    "actions": [
+      {
+        "type": "generate_learning_plan",
+        "include": ["gap_analysis", "recommendations", "timeline"]
+      },
+      {
+        "type": "log",
+        "message": "Assessment complete. Your personalized learning plan is ready."
+      }
+    ]
+  },
+  "on_agent_selection": {
+    "description": "Triggered when user selects an agent for learning",
+    "actions": [
+      {
+        "type": "load_skill",
+        "skill_category": "dynamic"
+      },
+      {
+        "type": "log",
+        "message": "Agent selected. Beginning specialized learning path."
+      }
+    ]
+  },
+  "on_learning_milestone": {
+    "description": "Triggered at learning milestones (25%, 50%, 75%, 100%)",
+    "actions": [
+      {
+        "type": "celebrate",
+        "intensity": "proportional"
+      },
+      {
+        "type": "recommend_next_steps",
+        "based_on": "current_progress"
+      }
+    ]
+  }
+}

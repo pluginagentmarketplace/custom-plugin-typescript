@@ -1,0 +1,51 @@
+{
+  "on_learning_start": {
+    "description": "Triggered when user starts learning path",
+    "actions": [
+      {
+        "type": "log",
+        "message": "🎉 Welcome to your Developer Roadmap journey! Consistency beats intensity."
+      },
+      {
+        "type": "track",
+        "metric": "learning_started",
+        "specialization": "dynamic"
+      }
+    ]
+  },
+  "on_milestone_50_percent": {
+    "description": "Triggered at 50% completion",
+    "actions": [
+      {
+        "type": "celebrate",
+        "message": "🏆 Halfway there! You're building real momentum."
+      },
+      {
+        "type": "suggest_projects",
+        "difficulty": "intermediate"
+      }
+    ]
+  },
+  "on_milestone_100_percent": {
+    "description": "Triggered at 100% completion",
+    "actions": [
+      {
+        "type": "celebrate",
+        "message": "🌟 Mastery achieved! You've completed this track."
+      },
+      {
+        "type": "suggest_next_track",
+        "based_on": "learning_history"
+      }
+    ]
+  },
+  "on_skill_assessment": {
+    "description": "Triggered after skill assessment",
+    "actions": [
+      {
+        "type": "generate_recommendations",
+        "include": ["gap_analysis", "suggested_projects", "timeline"]
+      }
+    ]
+  }
+}

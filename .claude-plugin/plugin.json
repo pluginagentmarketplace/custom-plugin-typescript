@@ -1,0 +1,96 @@
+{
+  "name": "custom-plugin-typescript",
+  "displayName": "Developer Roadmap Companion",
+  "version": "1.0.0",
+  "description": "Master 65+ developer roles with personalized learning paths, skill assessment, and career progression guidance across frontend, backend, DevOps, AI/ML, data engineering, security, and leadership tracks.",
+  "author": {
+    "name": "Developer Roadmap Community",
+    "url": "https://github.com/kamranahmedse/developer-roadmap"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/kamranahmedse/developer-roadmap",
+  "keywords": [
+    "developer-roadmap",
+    "65-roles",
+    "learning-paths",
+    "career-development",
+    "frontend",
+    "backend",
+    "devops",
+    "data-engineering",
+    "ai-ml",
+    "security",
+    "typescript"
+  ],
+  "agents": [
+    {
+      "id": "frontend-ui-development",
+      "path": "agents/01-frontend-ui-development.md",
+      "name": "Frontend & UI Development"
+    },
+    {
+      "id": "backend-database-engineering",
+      "path": "agents/02-backend-database-engineering.md",
+      "name": "Backend & Database Engineering"
+    },
+    {
+      "id": "devops-cloud-infrastructure",
+      "path": "agents/03-devops-cloud-infrastructure.md",
+      "name": "DevOps & Cloud Infrastructure"
+    },
+    {
+      "id": "data-engineering-analytics",
+      "path": "agents/04-data-engineering-analytics.md",
+      "name": "Data Engineering & Analytics"
+    },
+    {
+      "id": "ai-emerging-technologies",
+      "path": "agents/05-ai-emerging-technologies.md",
+      "name": "AI & Emerging Technologies"
+    },
+    {
+      "id": "security-qa-practices",
+      "path": "agents/06-security-qa-practices.md",
+      "name": "Security, QA & Best Practices"
+    },
+    {
+      "id": "career-management-leadership",
+      "path": "agents/07-career-management-leadership.md",
+      "name": "Career Paths & Leadership"
+    }
+  ],
+  "commands": [
+    {
+      "name": "start",
+      "path": "commands/start.md",
+      "description": "Begin your developer roadmap journey and discover your ideal specialization"
+    },
+    {
+      "name": "explore",
+      "path": "commands/explore.md",
+      "description": "Explore all 65+ developer roles across 7 specialization tracks"
+    },
+    {
+      "name": "assess",
+      "path": "commands/assess.md",
+      "description": "Assess your current skills and receive personalized learning recommendations"
+    },
+    {
+      "name": "roadmap",
+      "path": "commands/roadmap.md",
+      "description": "View your personalized learning roadmap with milestones and projects"
+    }
+  ],
+  "skills": [
+    { "id": "frontend-technologies", "path": "skills/frontend/SKILL.md" },
+    { "id": "backend-technologies", "path": "skills/backend/SKILL.md" },
+    { "id": "devops-cloud", "path": "skills/devops/SKILL.md" },
+    { "id": "data-engineering", "path": "skills/data/SKILL.md" },
+    { "id": "ai-ml-technologies", "path": "skills/ai/SKILL.md" },
+    { "id": "security-practices", "path": "skills/security/SKILL.md" },
+    { "id": "career-development", "path": "skills/career/SKILL.md" }
+  ],
+  "hooks": {
+    "configPath": "hooks/hooks.json"
+  }
+}

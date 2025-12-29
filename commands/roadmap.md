@@ -1,3 +1,9 @@
+---
+name: roadmap
+description: Your Personalized Learning Roadmap
+allowed-tools: Read
+---
+
 # Your Personalized Learning Roadmap
 
 Create your customized learning journey based on your goals and current skills.

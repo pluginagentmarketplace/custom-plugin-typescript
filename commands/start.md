@@ -1,3 +1,9 @@
+---
+name: start
+description: Start Your Developer Roadmap Journey
+allowed-tools: Read
+---
+
 # Start Your Developer Roadmap Journey
 
 Welcome to the **Developer Roadmap Companion**! Choose your specialization and begin your personalized learning journey across 65+ developer roles.

@@ -1,3 +1,9 @@
+---
+name: explore
+description: Explore All 65+ Developer Roles
+allowed-tools: Read
+---
+
 # Explore All 65+ Developer Roles
 
 Discover your ideal role across 7 specialization tracks covering the complete developer ecosystem.

@@ -1,3 +1,9 @@
+---
+name: assess
+description: Assess Your Current Skills
+allowed-tools: Read
+---
+
 # Assess Your Current Skills
 
 Evaluate your expertise across the 7 specialization tracks and get personalized recommendations.

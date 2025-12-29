@@ -9,8 +9,16 @@
   },
   "homepage": "https://github.com/pluginagentmarketplace/custom-plugin-typescript",
   "repository": "https://github.com/pluginagentmarketplace/custom-plugin-typescript",
-  "license": "MIT",
-  "keywords": ["typescript", "frontend", "backend", "devops", "learning-paths", "claude-code", "plugin"],
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "typescript",
+    "frontend",
+    "backend",
+    "devops",
+    "learning-paths",
+    "claude-code",
+    "plugin"
+  ],
   "agents": [
     "./agents/01-frontend-ui-development.md",
     "./agents/02-backend-database-engineering.md",

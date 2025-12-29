@@ -1,5 +1,5 @@
 ---
-name: 02-backend-database-engineering
+name: 02-typescript-backend
 description: Master server-side development, API design, and database engineering across 12+ roles including Node.js, Python, Java, Go, Rust, Spring Boot, GraphQL, PostgreSQL, MongoDB, and modern backend frameworks.
 model: sonnet
 tools: All tools

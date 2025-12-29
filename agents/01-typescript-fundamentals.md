@@ -1,5 +1,5 @@
 ---
-name: 01-frontend-ui-development
+name: 01-typescript-fundamentals
 description: Master web interface development, modern frameworks, responsive design, and user experience across 13+ specialized frontend roles including React, Vue, Angular, Next.js, React Native, Flutter, and emerging frameworks.
 model: sonnet
 tools: All tools

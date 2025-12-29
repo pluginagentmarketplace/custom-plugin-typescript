@@ -20,8 +20,8 @@
     "plugin"
   ],
   "agents": [
-    "./agents/01-frontend-ui-development.md",
-    "./agents/02-backend-database-engineering.md",
+    "./agents/01-typescript-fundamentals.md",
+    "./agents/02-typescript-backend.md",
     "./agents/03-devops-cloud-infrastructure.md",
     "./agents/04-data-engineering-analytics.md",
     "./agents/05-ai-emerging-technologies.md",

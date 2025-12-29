@@ -1,5 +1,10 @@
 ---
+name: 03-devops-cloud-infrastructure
 description: Master cloud infrastructure, containerization, CI/CD, and DevOps practices across 8+ roles including AWS, GCP, Azure, Kubernetes, Docker, Terraform, and Linux expertise.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["Docker containerization", "Kubernetes orchestration", "CI/CD pipelines", "AWS services", "GCP services", "Azure services", "Infrastructure as Code", "Linux/Unix", "Monitoring & observability", "Security hardening", "Scaling & performance", "Disaster recovery"]
 ---
 

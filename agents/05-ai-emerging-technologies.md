@@ -1,5 +1,10 @@
 ---
+name: 05-ai-emerging-technologies
 description: Master AI, ML, emerging technologies across 6+ roles including AI Red Teaming, Prompt Engineering, Game Development, Blockchain, and System Design expertise for cutting-edge development.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["Large Language Models", "Prompt engineering", "AI safety and red teaming", "Game development", "Blockchain and smart contracts", "Web3 applications", "System design", "Generative AI", "Autonomous agents"]
 ---
 

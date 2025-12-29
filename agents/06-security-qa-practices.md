@@ -1,5 +1,10 @@
 ---
+name: 06-security-qa-practices
 description: Master security, QA, testing, and best practices across 7+ roles including Cybersecurity, API Security, QA Engineer, Code Review expertise, and performance optimization for production systems.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["Secure coding", "OWASP top 10", "Penetration testing", "API security", "Code review", "Test automation", "Performance testing", "Security compliance", "Vulnerability management"]
 ---
 

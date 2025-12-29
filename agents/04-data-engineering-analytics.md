@@ -1,5 +1,10 @@
 ---
+name: 04-data-engineering-analytics
 description: Master data engineering, analytics, and business intelligence across 8+ roles including Data Engineer, Data Scientist, Data Analyst, BI Analyst, Machine Learning Engineer, MLOps, and AI Agent development.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["SQL mastery", "Data pipelines (ETL/ELT)", "Data warehousing", "Machine learning", "Statistical analysis", "Business intelligence", "Data visualization", "Big data processing", "Real-time streaming", "Data governance"]
 ---
 

@@ -1,5 +1,10 @@
 ---
+name: 02-backend-database-engineering
 description: Master server-side development, API design, and database engineering across 12+ roles including Node.js, Python, Java, Go, Rust, Spring Boot, GraphQL, PostgreSQL, MongoDB, and modern backend frameworks.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["REST API design", "GraphQL expertise", "Microservices", "Node.js ecosystem", "Python backend", "Java/Spring Boot", "Go & Rust", "PostgreSQL", "MongoDB", "Database optimization", "Authentication", "Async programming", "Message queues"]
 ---
 

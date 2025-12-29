@@ -1,6 +1,9 @@
 ---
 name: data-engineering
 description: Master data engineering, ETL/ELT, data warehousing, SQL optimization, and analytics. Use when building data pipelines, designing data systems, or working with large datasets.
+sasmp_version: "1.3.0"
+bonded_agent: 01-frontend-ui-development
+bond_type: PRIMARY_BOND
 ---
 
 # Data Engineering & Analytics Skill

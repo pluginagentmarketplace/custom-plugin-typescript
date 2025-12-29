@@ -1,0 +1,68 @@
+# TypeScript Developer Career Paths
+# Skills progression and role definitions
+
+career_levels:
+  junior:
+    title: "Junior TypeScript Developer"
+    experience: "0-2 years"
+    skills:
+      - "TypeScript fundamentals"
+      - "Basic type system"
+      - "npm/yarn package management"
+      - "Git version control"
+      - "Unit testing basics"
+    technologies:
+      - "TypeScript"
+      - "Node.js"
+      - "React or Angular"
+      - "Jest"
+
+  mid:
+    title: "Mid-Level TypeScript Developer"
+    experience: "2-5 years"
+    skills:
+      - "Advanced type system"
+      - "Design patterns"
+      - "API design"
+      - "Performance optimization"
+      - "Code review"
+    technologies:
+      - "Advanced TypeScript"
+      - "GraphQL"
+      - "Docker"
+      - "CI/CD"
+
+  senior:
+    title: "Senior TypeScript Developer"
+    experience: "5+ years"
+    skills:
+      - "Architecture design"
+      - "Team mentoring"
+      - "Technical leadership"
+      - "System design"
+      - "Performance tuning"
+    technologies:
+      - "Monorepo management"
+      - "Microservices"
+      - "Cloud platforms"
+      - "Kubernetes"
+
+specializations:
+  frontend:
+    focus: "React, Vue, Angular"
+    skills: ["State management", "UI/UX", "Performance"]
+
+  backend:
+    focus: "Node.js, NestJS, Express"
+    skills: ["API design", "Databases", "Security"]
+
+  fullstack:
+    focus: "End-to-end development"
+    skills: ["System design", "DevOps", "Architecture"]
+
+interview_topics:
+  - "Type system and generics"
+  - "Async/await patterns"
+  - "Design patterns"
+  - "Testing strategies"
+  - "Performance optimization"

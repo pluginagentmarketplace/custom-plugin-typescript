@@ -1,6 +1,9 @@
 ---
 name: frontend-technologies
 description: Master modern web development with HTML, CSS, JavaScript, React, Vue, Angular, Next.js, TypeScript, and responsive design. Use when building web applications, optimizing UI performance, or learning frontend frameworks.
+sasmp_version: "1.3.0"
+bonded_agent: 01-frontend-ui-development
+bond_type: PRIMARY_BOND
 ---
 
 # Frontend Technologies Skill

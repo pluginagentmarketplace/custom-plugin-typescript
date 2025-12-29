@@ -1,0 +1,99 @@
+# TypeScript Types for AI/ML Development
+# Type definitions for machine learning workflows
+
+# Tensor Types
+tensor_types:
+  basic:
+    Tensor1D: "number[]"
+    Tensor2D: "number[][]"
+    Tensor3D: "number[][][]"
+    TensorND: "number[] | number[][] | number[][][] | number[][][][]"
+
+  typed_arrays:
+    Float32Tensor: "Float32Array"
+    Float64Tensor: "Float64Array"
+    Int32Tensor: "Int32Array"
+    Uint8Tensor: "Uint8Array"
+
+# Model Types
+model_types:
+  config: |
+    interface ModelConfig {
+      inputShape: number[];
+      outputShape: number[];
+      layers: LayerConfig[];
+      optimizer: OptimizerConfig;
+      loss: LossFunction;
+    }
+
+  layer: |
+    interface LayerConfig {
+      type: 'dense' | 'conv2d' | 'lstm' | 'dropout';
+      units?: number;
+      activation?: ActivationFunction;
+      kernelSize?: number[];
+    }
+
+  prediction: |
+    interface Prediction<T = number[]> {
+      output: T;
+      confidence: number;
+      label?: string;
+    }
+
+# Data Types
+data_types:
+  dataset: |
+    interface Dataset<T, L> {
+      features: T[];
+      labels: L[];
+      split(ratio: number): [Dataset<T, L>, Dataset<T, L>];
+    }
+
+  batch: |
+    interface Batch<T> {
+      data: T[];
+      size: number;
+      index: number;
+    }
+
+# Training Types
+training_types:
+  options: |
+    interface TrainingOptions {
+      epochs: number;
+      batchSize: number;
+      validationSplit?: number;
+      callbacks?: TrainingCallback[];
+    }
+
+  metrics: |
+    interface TrainingMetrics {
+      loss: number;
+      accuracy: number;
+      valLoss?: number;
+      valAccuracy?: number;
+      epoch: number;
+    }
+
+# API Types
+api_types:
+  openai: |
+    interface ChatCompletionRequest {
+      model: string;
+      messages: Message[];
+      temperature?: number;
+      max_tokens?: number;
+    }
+
+    interface Message {
+      role: 'system' | 'user' | 'assistant';
+      content: string;
+    }
+
+  embedding: |
+    interface EmbeddingResponse {
+      embedding: number[];
+      model: string;
+      usage: { tokens: number };
+    }

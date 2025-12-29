@@ -1,5 +1,10 @@
 ---
+name: 07-career-management-leadership
 description: Develop career paths and leadership skills across 6+ roles including Product Manager, Engineering Manager, Technical Writer, DevRel Engineer, Tech Lead, and CTO responsibilities for career growth and organizational impact.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["Leadership development", "Team management", "Strategic planning", "Product management", "Technical communication", "Developer relations", "Career progression", "Organizational design"]
 ---
 

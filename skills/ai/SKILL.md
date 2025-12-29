@@ -1,6 +1,9 @@
 ---
 name: ai-ml-technologies
 description: Master AI, machine learning, LLMs, prompt engineering, and blockchain development. Use when building AI applications, working with LLMs, or developing smart contracts.
+sasmp_version: "1.3.0"
+bonded_agent: 01-frontend-ui-development
+bond_type: PRIMARY_BOND
 ---
 
 # AI & Emerging Technologies Skill

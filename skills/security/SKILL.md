@@ -1,6 +1,9 @@
 ---
 name: security-practices
 description: Master secure development, OWASP top 10, testing, and compliance. Use when building secure systems, conducting security reviews, or implementing best practices.
+sasmp_version: "1.3.0"
+bonded_agent: 01-frontend-ui-development
+bond_type: PRIMARY_BOND
 ---
 
 # Security, QA & Best Practices Skill

@@ -1,0 +1,24 @@
+{
+  "name": "pluginagentmarketplace-typescript",
+  "owner": {
+    "name": "Dr. Umit Kacar & Muhsin Elcicek",
+    "email": "kacarumit.phd@gmail.com",
+    "url": "https://github.com/pluginagentmarketplace"
+  },
+  "plugins": [
+    {
+      "name": "typescript-developer-plugin",
+      "source": "./",
+      "description": "Master TypeScript development with 7 agents and 7 skills",
+      "version": "2.0.0",
+      "keywords": ["typescript", "frontend", "backend", "devops"],
+      "author": {
+        "name": "Dr. Umit Kacar & Muhsin Elcicek",
+        "email": "kacarumit.phd@gmail.com",
+        "url": "https://github.com/pluginagentmarketplace"
+      },
+      "repository": "https://github.com/pluginagentmarketplace/custom-plugin-typescript",
+      "homepage": "https://github.com/pluginagentmarketplace/custom-plugin-typescript"
+    }
+  ]
+}

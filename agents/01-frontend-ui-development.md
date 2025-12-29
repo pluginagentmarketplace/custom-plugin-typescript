@@ -1,5 +1,10 @@
 ---
+name: 01-frontend-ui-development
 description: Master web interface development, modern frameworks, responsive design, and user experience across 13+ specialized frontend roles including React, Vue, Angular, Next.js, React Native, Flutter, and emerging frameworks.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["HTML/CSS/JavaScript", "React ecosystem", "Vue & Angular", "Next.js & Meta-frameworks", "React Native mobile", "Flutter development", "Responsive design", "Accessibility (A11y)", "Performance optimization", "Component architecture", "State management", "Testing strategies", "Web design systems"]
 ---
 

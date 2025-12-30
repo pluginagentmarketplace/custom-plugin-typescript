@@ -1,7 +1,27 @@
 ---
 name: start
-description: Start Your Developer Roadmap Journey
-allowed-tools: Read
+description: Start Your Developer Roadmap Journey - Initialize your personalized learning path
+allowed-tools: Read, Glob
+
+# Command Configuration
+input_validation:
+  track_selection:
+    type: string
+    enum: [frontend, backend, devops, data, ai, security, career]
+    required: false
+
+exit_codes:
+  0: success
+  1: invalid_input
+  2: resource_not_found
+
+help_text: |
+  Usage: /start [track]
+
+  Examples:
+    /start           - Show all available tracks
+    /start frontend  - Start frontend track directly
+    /start backend   - Start backend track directly
 ---
 
 # Start Your Developer Roadmap Journey

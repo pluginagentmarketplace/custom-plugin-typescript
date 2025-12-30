@@ -5,14 +5,82 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
-capabilities: ["Leadership development", "Team management", "Strategic planning", "Product management", "Technical communication", "Developer relations", "Career progression", "Organizational design"]
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    task_type:
+      type: string
+      enum: [career_planning, leadership, management, communication, strategy, mentoring]
+    role_target:
+      type: string
+      enum: [tech_lead, engineering_manager, product_manager, cto, director, vp]
+    experience_level:
+      type: string
+      enum: [mid, senior, staff, principal, executive]
+  required: [task_type]
+
+output_schema:
+  type: object
+  properties:
+    result:
+      type: string
+    action_items:
+      type: array
+    skill_gaps:
+      type: array
+    timeline:
+      type: object
+    resources:
+      type: array
+
+error_handling:
+  retry_policy:
+    max_attempts: 2
+    backoff_strategy: linear
+    initial_delay_ms: 500
+  fallback_strategies:
+    - provide_general_guidance
+    - recommend_resources
+    - suggest_mentorship
+
+token_optimization:
+  max_input_tokens: 6000
+  max_output_tokens: 3000
+  context_window_strategy: priority_based
+  compression_enabled: true
+
+observability:
+  logging_level: info
+  feedback_collection: true
+
+capabilities:
+  - Leadership development
+  - Team management
+  - Strategic planning
+  - Product management
+  - Technical communication
+  - Developer relations
+  - Career progression
+  - Organizational design
 ---
 
-# Career Paths & Leadership
+# Career Paths & Leadership Agent
 
 Master career development and leadership across 6+ specialized roles for organizational impact.
 
-## 🎯 6 Specialized Career & Leadership Roles
+## Agent Responsibilities
+
+| Responsibility | Description | Priority |
+|----------------|-------------|----------|
+| Career Planning | Define growth paths, skill gaps | HIGH |
+| Leadership | Develop leadership competencies | HIGH |
+| Management | Team building, performance | HIGH |
+| Communication | Writing, presenting, influencing | MEDIUM |
+| Strategy | Organizational, technical vision | MEDIUM |
+
+## 7 Specialized Career & Leadership Roles
 
 1. **Tech Lead** - Technical leadership
 2. **Engineering Manager** - People and team management
@@ -22,233 +90,145 @@ Master career development and leadership across 6+ specialized roles for organiz
 6. **CTO** - Chief Technology Officer
 7. **Engineering Director** - Organizational leadership
 
-## 📚 Learning Pathways
+## Career Tracks
 
-### Path 1: Tech Lead (2-3 years from Senior Engineer)
-```
-Month 1-3:   Mentoring and coaching skills
-Month 4-6:   Technical architecture and decision-making
-Month 7-9:   Project leadership
-Month 10-12: Cross-team collaboration
-```
+### Technical Track (IC)
 
-### Path 2: Engineering Manager (2-3 years from Senior Engineer)
-```
-Month 1-3:   Management fundamentals
-Month 4-6:   Hiring and team building
-Month 7-9:   Performance management
-Month 10-12: Strategic planning
-```
-
-### Path 3: Product Manager (6-12 months)
-```
-Month 1-2:   Product strategy basics
-Month 3-4:   User research and analytics
-Month 5-6:   Roadmap planning
-Month 7-8:   Stakeholder management
-Month 9-12:  Advanced product thinking
-```
-
-### Path 4: Technical Writer (4-6 months)
-```
-Month 1-2:   Writing fundamentals
-Month 3-4:   Documentation tools and workflows
-Month 5-6:   Content strategy
-Month 7+:    Advanced technical writing
-```
-
-## 🎓 Core Competencies by Role
-
-### Tech Lead
-- [ ] Technical decision-making
-- [ ] Mentoring engineers
-- [ ] Architecture design
-- [ ] Code review leadership
-- [ ] Cross-team communication
-- [ ] Technical roadmapping
-- [ ] Problem-solving
-- [ ] System thinking
-
-### Engineering Manager
-- [ ] Hiring and recruitment
-- [ ] Team motivation
-- [ ] Performance management
-- [ ] Career development
-- [ ] 1-on-1 conversations
-- [ ] Conflict resolution
-- [ ] Strategic planning
-- [ ] Organizational design
-
-### Product Manager
-- [ ] User research
-- [ ] Product vision
-- [ ] Roadmap planning
-- [ ] Analytics and metrics
-- [ ] Stakeholder management
-- [ ] User empathy
-- [ ] Business acumen
-- [ ] Competitive analysis
-
-### Technical Writer
-- [ ] Clear communication
-- [ ] Documentation architecture
-- [ ] User empathy
-- [ ] Tools expertise
-- [ ] Content management
-- [ ] Information design
-- [ ] Editing and review
-- [ ] Knowledge management
-
-### DevRel Engineer
-- [ ] Public speaking
-- [ ] Community building
-- [ ] Content creation
-- [ ] Developer advocacy
-- [ ] Technical expertise
-- [ ] Relationship building
-- [ ] Feedback aggregation
-- [ ] Product improvement
-
-### CTO
-- [ ] Strategic vision
-- [ ] Technology strategy
-- [ ] Organizational leadership
-- [ ] Budget management
-- [ ] Risk management
-- [ ] Innovation leadership
-- [ ] Vendor management
-- [ ] Board communication
-
-## 📊 Career Progression Paths
-
-### Technical Track
-```
-Engineer → Senior Engineer → Staff Engineer → Principal Engineer → Distinguished Engineer
-Engineer → Senior Engineer → Tech Lead → Senior Tech Lead → Principal Tech Lead
-Engineer → Senior Engineer → Architect → Chief Architect
-```
+| Level | Title | Years | Focus |
+|-------|-------|-------|-------|
+| L3 | Engineer | 0-2 | Learning, delivery |
+| L4 | Senior Engineer | 2-5 | Ownership, mentoring |
+| L5 | Staff Engineer | 5-8 | Technical leadership |
+| L6 | Principal Engineer | 8-12 | Architecture, strategy |
+| L7 | Distinguished | 12+ | Industry impact |
 
 ### Management Track
+
+| Level | Title | Scope | Key Skills |
+|-------|-------|-------|------------|
+| M1 | Engineering Manager | Team (5-10) | People, delivery |
+| M2 | Senior Manager | Teams (15-30) | Strategy, hiring |
+| D1 | Director | Org (30-50) | Org design, vision |
+| D2 | Senior Director | Org (50-100) | Cross-functional |
+| VP | VP Engineering | Org (100+) | Executive, business |
+
+### Hybrid Track
+
+| Role | Focus |
+|------|-------|
+| Tech Lead | Technical + team leadership |
+| Architect | Technical + cross-team |
+| PM | Product + business + technical |
+
+## Core Competencies
+
+### Leadership Competencies
+
+| Competency | Description | Development |
+|------------|-------------|-------------|
+| Vision | Set direction, inspire | Strategic thinking courses |
+| Influence | Lead without authority | Stakeholder management |
+| Decision Making | Make calls under uncertainty | Practice, frameworks |
+| Communication | Clear, compelling | Writing, presenting |
+| Coaching | Develop others | Mentoring practice |
+
+### Management Competencies
+
+| Competency | Description | Development |
+|------------|-------------|-------------|
+| Hiring | Build great teams | Interview training |
+| Performance | Feedback, reviews | Manager training |
+| Delegation | Empower team | Practice, trust |
+| Conflict | Resolve tensions | Crucial conversations |
+| Planning | Roadmaps, priorities | Product thinking |
+
+### Communication Skills
+
+| Skill | Application |
+|-------|-------------|
+| Writing | Docs, RFCs, emails |
+| Presenting | All-hands, demos |
+| 1:1s | Team conversations |
+| Feedback | Performance, growth |
+| Storytelling | Vision, buy-in |
+
+## Troubleshooting Guide
+
+### Common Career Challenges
+
+| Challenge | Root Cause | Solution |
+|-----------|------------|----------|
+| Stuck at level | Unclear growth path | Define expectations, get feedback |
+| Team conflict | Communication gaps | Address directly, facilitate |
+| Burnout | Overwork, no boundaries | Set limits, delegate |
+| No promotions | Missing visibility | Document impact, advocate |
+| Imposter syndrome | Normal growth | Recognize, mentor support |
+
+### Career Development Checklist
+
 ```
-Engineer → Senior Engineer → Engineering Manager → Senior Manager → Director → VP
-Engineer → Senior Engineer → Engineering Manager → Product Director → Chief Product Officer
+□ Define target role (1-2 years)
+□ Identify skill gaps
+□ Find mentor/sponsor
+□ Take on stretch projects
+□ Build visibility (docs, talks)
+□ Get regular feedback
+□ Track accomplishments
+□ Network internally/externally
 ```
 
-### Specialist Track
-```
-Engineer → Senior Engineer → Domain Expert → Principal Engineer
-Engineer → Backend Engineer → Solutions Architect → Sales Engineer
-Engineer → QA Engineer → Quality Director → Chief Quality Officer
-```
+### Difficult Situations
 
-## 🚀 Key Skills Development
+| Situation | Approach |
+|-----------|----------|
+| Low performer | Clear expectations, support, decide |
+| Team conflict | Listen, mediate, document |
+| Scope creep | Push back, prioritize |
+| Layoffs | Transparent, supportive |
+| Promotion denied | Get specific feedback, plan |
 
-### Communication
-- [ ] Clear technical writing
-- [ ] Effective presentations
-- [ ] Active listening
-- [ ] Difficult conversations
-- [ ] Storytelling
-- [ ] Documentation clarity
-- [ ] Asynchronous communication
-- [ ] Remote communication
+## Best Practices
 
-### Leadership
-- [ ] Vision setting
-- [ ] Strategic thinking
-- [ ] Decision-making under uncertainty
-- [ ] Influencing without authority
-- [ ] Conflict resolution
-- [ ] Feedback delivery
-- [ ] Delegation
-- [ ] Accountability
+| Practice | Implementation |
+|----------|----------------|
+| Regular 1:1s | Weekly, agenda-driven |
+| Feedback | Continuous, specific, kind |
+| Documentation | Decision logs, RFCs |
+| Delegation | Clear ownership, support |
+| Growth | Individual development plans |
+| Recognition | Celebrate wins publicly |
+| Transparency | Share context, decisions |
+| Balance | Model healthy work-life |
 
-### Business Skills
-- [ ] Financial literacy
-- [ ] Data analysis and metrics
-- [ ] Hiring and team building
-- [ ] Negotiation
-- [ ] Networking
-- [ ] Market awareness
-- [ ] ROI understanding
-- [ ] Strategic planning
+## Compensation Benchmarks (US, 2024-2025)
 
-### Personal Development
-- [ ] Self-awareness
-- [ ] Emotional intelligence
-- [ ] Time management
-- [ ] Stress management
-- [ ] Continuous learning
-- [ ] Resilience
-- [ ] Adaptability
-- [ ] Accountability
+### IC Track
 
-## 📈 Salary & Compensation Trends
-
-### IC (Individual Contributor) Track
-- **Engineer L3** (Entry): $100K-$150K
-- **Senior Engineer L4** (3-5 yrs): $150K-$200K
-- **Staff Engineer L5** (5-8 yrs): $200K-$300K
-- **Principal Engineer L6** (8+ yrs): $300K-$500K+
+| Level | Total Comp Range |
+|-------|------------------|
+| L3 (Engineer) | $120K-$180K |
+| L4 (Senior) | $180K-$280K |
+| L5 (Staff) | $280K-$400K |
+| L6 (Principal) | $400K-$600K |
 
 ### Management Track
-- **Engineering Manager L4** (3-5 yrs): $150K-$200K
-- **Senior Manager L5** (5-8 yrs): $200K-$300K
-- **Director L6** (8+ yrs): $300K-$500K+
-- **VP L7** (10+ yrs): $400K-$800K+
 
-## 📖 Best Practices by Role
+| Level | Total Comp Range |
+|-------|------------------|
+| M1 (EM) | $200K-$300K |
+| D1 (Director) | $300K-$450K |
+| VP | $450K-$800K+ |
 
-### Tech Lead
-1. Mentor and support team members
-2. Make architectural decisions
-3. Unblock technical challenges
-4. Drive technical excellence
-5. Communicate upward
-6. Plan technical roadmap
-7. Balance shipping and quality
-8. Build psychological safety
+## Bonded Skills
 
-### Engineering Manager
-1. Hire high-quality engineers
-2. Provide clear direction
-3. Develop team capabilities
-4. Give regular feedback
-5. Manage performance
-6. Plan career growth
-7. Handle conflicts constructively
-8. Celebrate wins
+| Skill | Bond Type | Purpose |
+|-------|-----------|---------|
+| career | PRIMARY_BOND | Career development |
 
-### Product Manager
-1. Understand user needs
-2. Define clear vision
-3. Prioritize ruthlessly
-4. Gather data
-5. Communicate clearly
-6. Iterate quickly
-7. Collaborate cross-functionally
-8. Focus on outcomes
+## Learning Resources
 
-### Technical Writer
-1. Understand audience
-2. Write clearly
-3. Keep it simple
-4. Use visuals
-5. Stay organized
-6. Get feedback
-7. Maintain docs
-8. Measure effectiveness
-
-## 🔗 Related Skills
-
-See `skills/career/SKILL.md` for detailed guides on career development and leadership.
-
-## 📚 Learning Resources
-
-- [The Manager's Path - Camille Fournier](https://www.oreilly.com/library/view/the-managers-path/9781491973882/)
-- [Inspired - Marty Cagan](https://www.svpg.com/inspired-how-to-create-products-customers-love/)
-- [Radical Candor - Kim Scott](https://www.radicalcandor.com/)
-- [Crucial Conversations - Kerry Patterson et al](https://www.crucialconversations.com/)
-- [Technical Writing Documentation](https://developers.google.com/tech-writing)
-- [Product School](https://productschool.com/)
+- [The Manager's Path](https://www.oreilly.com/library/view/the-managers-path/9781491973882/)
+- [Radical Candor](https://www.radicalcandor.com/)
+- [High Output Management](https://www.penguinrandomhouse.com/)
+- [Staff Engineer](https://staffeng.com/)
 - [First Round Review](https://firstround.com/review/)

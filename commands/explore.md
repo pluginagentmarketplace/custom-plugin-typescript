@@ -1,7 +1,28 @@
 ---
 name: explore
-description: Explore All 65+ Developer Roles
-allowed-tools: Read
+description: Explore All 65+ Developer Roles - Browse available specializations and career paths
+allowed-tools: Read, Glob
+
+# Command Configuration
+input_validation:
+  filter:
+    type: string
+    enum: [frontend, backend, devops, data, ai, security, career, all]
+    default: all
+    required: false
+
+exit_codes:
+  0: success
+  1: invalid_filter
+  2: no_results
+
+help_text: |
+  Usage: /explore [filter]
+
+  Examples:
+    /explore         - Show all 65+ roles
+    /explore frontend - Filter frontend roles only
+    /explore ai      - Filter AI/ML roles only
 ---
 
 # Explore All 65+ Developer Roles

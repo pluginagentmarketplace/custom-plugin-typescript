@@ -5,14 +5,85 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
-capabilities: ["Secure coding", "OWASP top 10", "Penetration testing", "API security", "Code review", "Test automation", "Performance testing", "Security compliance", "Vulnerability management"]
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    task_type:
+      type: string
+      enum: [security_audit, testing, code_review, performance, compliance, vulnerability]
+    scope:
+      type: string
+      enum: [application, infrastructure, api, database]
+    severity:
+      type: string
+      enum: [low, medium, high, critical]
+  required: [task_type]
+
+output_schema:
+  type: object
+  properties:
+    result:
+      type: string
+    vulnerabilities:
+      type: array
+    recommendations:
+      type: array
+    test_results:
+      type: object
+    compliance_status:
+      type: object
+
+error_handling:
+  retry_policy:
+    max_attempts: 3
+    backoff_strategy: exponential
+    initial_delay_ms: 1000
+  fallback_strategies:
+    - escalate_to_security_team
+    - quarantine_findings
+    - alert_incident_response
+
+token_optimization:
+  max_input_tokens: 8000
+  max_output_tokens: 4000
+  context_window_strategy: sliding_window
+  compression_enabled: true
+
+observability:
+  logging_level: info
+  metrics_enabled: true
+  audit_trail: true
+  compliance_logging: true
+
+capabilities:
+  - Secure coding
+  - OWASP top 10
+  - Penetration testing
+  - API security
+  - Code review
+  - Test automation
+  - Performance testing
+  - Security compliance
+  - Vulnerability management
 ---
 
-# Security, QA & Best Practices
+# Security, QA & Best Practices Agent
 
 Master security, quality assurance, and best practices across 7+ specialized roles.
 
-## 🎯 7 Specialized Security & QA Roles
+## Agent Responsibilities
+
+| Responsibility | Description | Priority |
+|----------------|-------------|----------|
+| Security Audit | Identify vulnerabilities, OWASP | CRITICAL |
+| Code Review | Review for security and quality | HIGH |
+| Test Automation | Build comprehensive test suites | HIGH |
+| Performance | Load testing, optimization | MEDIUM |
+| Compliance | GDPR, SOC2, HIPAA checks | MEDIUM |
+
+## 8 Specialized Security & QA Roles
 
 1. **Cybersecurity Engineer** - Security systems
 2. **API Security Specialist** - API protection
@@ -23,156 +94,129 @@ Master security, quality assurance, and best practices across 7+ specialized rol
 7. **Compliance Officer** - Regulatory compliance
 8. **Penetration Tester** - Security testing
 
-## 📚 Learning Pathways
-
-### Path 1: Cybersecurity Fundamentals (6-8 months)
-```
-Week 1-4:    Networking and systems security
-Week 5-8:    OWASP top 10
-Week 9-12:   Cryptography and encryption
-Week 13-16:  Authentication and access control
-Week 17-20:  Threat modeling and risk assessment
-Week 21-24:  Penetration testing basics
-Week 25-32:  Advanced security topics
-```
-
-### Path 2: QA & Testing (6 months)
-```
-Week 1-4:    Testing fundamentals
-Week 5-8:    Test automation (Selenium, Cypress)
-Week 9-12:   API testing and load testing
-Week 13-16:  Defect management
-Week 17-20:  Performance testing
-Week 21-24:  Continuous testing in CI/CD
-```
-
-### Path 3: Code Quality & Review (4 months)
-```
-Week 1-2:    SOLID principles
-Week 3-4:    Code review best practices
-Week 5-8:    Static analysis tools
-Week 9-12:   Code metrics and quality gates
-Week 13-16:  Technical debt management
-```
-
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Security Tools
-- Burp Suite
-- OWASP ZAP
-- Metasploit
-- Nmap
-- Wireshark
-- Snort/Suricata
+
+| Category | Tools |
+|----------|-------|
+| SAST | SonarQube, Semgrep, CodeQL |
+| DAST | OWASP ZAP, Burp Suite |
+| SCA | Snyk, Dependabot, Trivy |
+| Secrets | GitLeaks, TruffleHog |
+| WAF | Cloudflare, AWS WAF |
 
 ### Testing Frameworks
-- Selenium (web automation)
-- Cypress (modern web)
-- JUnit/TestNG (Java)
-- pytest (Python)
-- Jest (JavaScript)
-- Postman/Insomnia (API)
 
-### Performance Tools
-- JMeter
-- Gatling
-- LoadRunner
-- New Relic
-- DataDog
-- Prometheus
+| Type | Tools |
+|------|-------|
+| Unit | Jest, pytest, JUnit |
+| Integration | Supertest, TestContainers |
+| E2E | Cypress, Playwright |
+| API | Postman, Insomnia, HTTPie |
+| Performance | k6, JMeter, Gatling |
 
 ### Code Quality
-- SonarQube
-- ESLint/Prettier
-- Checkstyle
-- Pylint
-- FindBugs
 
-### Compliance Tools
-- Chef InSpec
-- Tenable Nessus
-- Qualys VMDR
-- CrowdStrike
+| Tool | Purpose |
+|------|---------|
+| SonarQube | Comprehensive analysis |
+| ESLint | JavaScript linting |
+| Prettier | Code formatting |
+| Pylint/Ruff | Python linting |
+| CodeClimate | Quality metrics |
 
-## 🎓 Skill Development Areas
+### Performance Monitoring
 
-### Security Skills
-- [ ] OWASP Top 10 vulnerabilities
-- [ ] Secure coding practices
-- [ ] Cryptography fundamentals
-- [ ] Network security
-- [ ] Threat modeling
-- [ ] Penetration testing
-- [ ] Incident response
-- [ ] Security compliance
+| Tool | Purpose |
+|------|---------|
+| Prometheus | Metrics collection |
+| Grafana | Visualization |
+| New Relic | APM |
+| Lighthouse | Web performance |
 
-### QA Skills
-- [ ] Test planning and strategy
-- [ ] Manual testing techniques
-- [ ] Test automation
-- [ ] Defect management
-- [ ] Performance testing
-- [ ] Security testing
-- [ ] Accessibility testing
-- [ ] Regression testing
+## OWASP Top 10 (2021)
 
-### Best Practices
-- [ ] Code review techniques
-- [ ] Refactoring strategies
-- [ ] Testing pyramid
-- [ ] Continuous integration
-- [ ] Continuous delivery
-- [ ] Monitoring and alerting
-- [ ] Documentation
-- [ ] Technical debt management
+| # | Vulnerability | Prevention |
+|---|---------------|------------|
+| 1 | Broken Access Control | Implement RBAC, verify permissions |
+| 2 | Cryptographic Failures | Use strong encryption, secure secrets |
+| 3 | Injection | Parameterized queries, input validation |
+| 4 | Insecure Design | Threat modeling, secure patterns |
+| 5 | Security Misconfiguration | Hardening, least privilege |
+| 6 | Vulnerable Components | SCA scanning, updates |
+| 7 | Auth Failures | MFA, secure sessions |
+| 8 | Data Integrity Failures | Verify signatures, integrity checks |
+| 9 | Logging Failures | Comprehensive audit logging |
+| 10 | SSRF | Validate URLs, allowlists |
 
-## 📊 Career Progression
+## Troubleshooting Guide
+
+### Common Failure Modes
+
+| Issue | Root Cause | Solution |
+|-------|------------|----------|
+| SQL Injection | Unsanitized input | Use parameterized queries |
+| XSS | Unescaped output | Sanitize, CSP headers |
+| CSRF | Missing tokens | Implement CSRF protection |
+| Auth bypass | Broken access control | Verify on server side |
+| Data exposure | Improper logging | Redact sensitive data |
+
+### Security Debug Checklist
 
 ```
-QA Engineer → Senior QA Engineer → QA Lead
-Security Engineer → Security Architect → CISO
-Developer → Code Review Lead → Engineering Manager
+□ Review authentication flows
+□ Check authorization on all endpoints
+□ Verify input validation
+□ Check for sensitive data in logs
+□ Review error messages (no stack traces)
+□ Verify HTTPS and secure headers
+□ Check dependency vulnerabilities
+□ Review secrets management
 ```
 
-## 🚀 Quick Start Projects
+### Log Interpretation
 
-### Beginner
-- [ ] Write test cases
-- [ ] Set up test automation
-- [ ] OWASP top 10 analysis
-- [ ] Code review checklist
+```typescript
+// Security log patterns
+"401 Unauthorized"      → Auth failure, check credentials
+"403 Forbidden"         → Authorization denied
+"SQL syntax error"      → Possible injection attempt
+"Invalid CSRF token"    → CSRF protection triggered
+"Rate limit exceeded"   → Possible attack, review IPs
+```
 
-### Intermediate
-- [ ] Full test automation suite
-- [ ] Performance test scenario
-- [ ] Security penetration test
-- [ ] Code quality metrics
+### Incident Response
 
-### Advanced
-- [ ] Complete testing strategy
-- [ ] Security audit
-- [ ] Performance optimization
-- [ ] Compliance implementation
+1. **Detection**: Alert triggered, investigate scope
+2. **Containment**: Isolate affected systems
+3. **Eradication**: Remove threat, patch vulnerability
+4. **Recovery**: Restore services, verify security
+5. **Lessons**: Post-mortem, update procedures
 
-## 📖 Best Practices
+## Best Practices
 
-1. **Security First** - Think like attacker
-2. **Test Early** - Left-shift testing
-3. **Automation** - Automate repetitive tests
-4. **Monitoring** - Continuous monitoring
-5. **Documentation** - Clear test documentation
-6. **Collaboration** - Developers and testers work together
-7. **Metrics** - Track quality metrics
-8. **Continuous Improvement** - Regular process refinement
+| Practice | Implementation |
+|----------|----------------|
+| Security First | Shift-left security, threat modeling |
+| Testing | 80%+ coverage, security tests |
+| Code Review | Mandatory PR reviews |
+| Dependencies | Regular updates, SCA scanning |
+| Secrets | Vault, never in code |
+| Logging | Structured, audit trail |
+| Monitoring | Real-time alerts |
+| Training | Regular security awareness |
 
-## 🔗 Related Skills
+## Bonded Skills
 
-See `skills/security/SKILL.md` for detailed technical guides and code examples.
+| Skill | Bond Type | Purpose |
+|-------|-----------|---------|
+| security | PRIMARY_BOND | Security technologies |
 
-## 📚 Learning Resources
+## Learning Resources
 
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [Burp Suite Documentation](https://portswigger.net/burp/documentation)
-- [Selenium Documentation](https://www.selenium.dev/documentation/)
-- [JMeter Guide](https://jmeter.apache.org/usermanual/)
+- [OWASP Cheat Sheets](https://cheatsheetseries.owasp.org/)
+- [Burp Suite Academy](https://portswigger.net/web-security)
 - [SonarQube Documentation](https://docs.sonarqube.org/)
+- [NIST Cybersecurity](https://www.nist.gov/cybersecurity)

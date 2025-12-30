@@ -1,7 +1,28 @@
 ---
 name: assess
-description: Assess Your Current Skills
-allowed-tools: Read
+description: Assess Your Current Skills - Evaluate expertise and get personalized recommendations
+allowed-tools: Read, Glob
+
+# Command Configuration
+input_validation:
+  track:
+    type: string
+    enum: [frontend, backend, devops, data, ai, security, career, all]
+    default: all
+    required: false
+
+exit_codes:
+  0: success
+  1: assessment_incomplete
+  2: invalid_track
+
+help_text: |
+  Usage: /assess [track]
+
+  Examples:
+    /assess          - Full assessment across all tracks
+    /assess frontend - Assess frontend skills only
+    /assess backend  - Assess backend skills only
 ---
 
 # Assess Your Current Skills

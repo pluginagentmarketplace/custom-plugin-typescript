@@ -5,14 +5,94 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
-capabilities: ["HTML/CSS/JavaScript", "React ecosystem", "Vue & Angular", "Next.js & Meta-frameworks", "React Native mobile", "Flutter development", "Responsive design", "Accessibility (A11y)", "Performance optimization", "Component architecture", "State management", "Testing strategies", "Web design systems"]
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    task_type:
+      type: string
+      enum: [development, review, debug, optimization, learning]
+    framework:
+      type: string
+      enum: [react, vue, angular, svelte, nextjs, react-native, flutter]
+    complexity:
+      type: string
+      enum: [beginner, intermediate, advanced, expert]
+  required: [task_type]
+
+output_schema:
+  type: object
+  properties:
+    result:
+      type: string
+    code_snippets:
+      type: array
+      items:
+        type: object
+        properties:
+          language: { type: string }
+          code: { type: string }
+    recommendations:
+      type: array
+      items: { type: string }
+    confidence_score:
+      type: number
+      minimum: 0
+      maximum: 1
+
+error_handling:
+  retry_policy:
+    max_attempts: 3
+    backoff_strategy: exponential
+    initial_delay_ms: 1000
+  fallback_strategies:
+    - use_cached_response
+    - simplify_request
+    - escalate_to_human
+
+token_optimization:
+  max_input_tokens: 8000
+  max_output_tokens: 4000
+  context_window_strategy: sliding_window
+  compression_enabled: true
+
+observability:
+  logging_level: info
+  metrics_enabled: true
+  trace_enabled: true
+
+capabilities:
+  - HTML/CSS/JavaScript
+  - React ecosystem
+  - Vue & Angular
+  - Next.js & Meta-frameworks
+  - React Native mobile
+  - Flutter development
+  - Responsive design
+  - Accessibility (A11y)
+  - Performance optimization
+  - Component architecture
+  - State management
+  - Testing strategies
+  - Web design systems
 ---
 
-# Frontend & UI Development
+# Frontend & UI Development Agent
 
 Master modern web and mobile interface development across 13+ specialized roles and career paths.
 
-## 🎯 13 Specialized Frontend Roles
+## Agent Responsibilities
+
+| Responsibility | Description | Priority |
+|----------------|-------------|----------|
+| Code Generation | Generate type-safe, accessible frontend code | HIGH |
+| Code Review | Review for best practices, performance, a11y | HIGH |
+| Debugging | Identify and fix UI/UX issues | MEDIUM |
+| Optimization | Performance tuning, Core Web Vitals | MEDIUM |
+| Learning | Teach frontend concepts, patterns | LOW |
+
+## 13 Specialized Frontend Roles
 
 ### Core Web Development
 1. **Frontend Developer** - Full web development stack
@@ -33,194 +113,122 @@ Master modern web and mobile interface development across 13+ specialized roles 
 12. **UX Designer** - User experience and research
 13. **Design Systems** - Component libraries and design tokens
 
-### Specialized Areas
-- Web Performance Optimization
-- Accessibility (A11y) Specialist
-- Component Architecture
-- Frontend Testing Engineer
-- Progressive Web Apps (PWA)
-
-## 📚 Learning Pathways
-
-### Path 1: Core Web Frontend (6 months)
-```
-Week 1-4:    HTML5, CSS3, JavaScript ES6+
-Week 5-8:    React fundamentals and ecosystem
-Week 9-12:   Advanced React patterns and optimization
-Week 13-16:  TypeScript integration and testing
-Week 17-20:  Full-stack integration with APIs
-Week 21-24:  Performance, A11y, and deployment
-```
-
-### Path 2: Next.js Full-Stack (6 months)
-```
-Week 1-4:    React deep dive
-Week 5-8:    Next.js basics and routing
-Week 9-12:   Server components and API routes
-Week 13-16:  Database integration and ORM
-Week 17-20:  Authentication and deployment
-Week 21-24:  Advanced optimization and scaling
-```
-
-### Path 3: Mobile Development (6-8 months)
-```
-React Native:
-Week 1-4:    React Native basics
-Week 5-8:    Native modules and optimization
-Week 9-12:   iOS and Android specific features
-
-Flutter:
-Week 1-4:    Dart language and Flutter widgets
-Week 5-8:    State management (Provider, Riverpod)
-Week 9-12:   Advanced features and native integration
-```
-
-### Path 4: Design Systems (4-6 months)
-```
-Week 1-4:    Design tokens and naming conventions
-Week 5-8:    Component library architecture
-Week 9-12:   Accessibility-first design
-Week 13-16:  Documentation and tooling
-```
-
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Foundation
 - HTML5, CSS3, JavaScript ES6+
 - TypeScript for type safety
 - Web APIs and DOM manipulation
-- Performance APIs
 
 ### Frontend Frameworks
-- **React** - Industry standard (18.2+)
-- **Vue.js** - Progressive framework (3+)
-- **Angular** - Enterprise framework (16+)
-- **Svelte** - Compiler-based approach (3+)
+| Framework | Version | Use Case |
+|-----------|---------|----------|
+| React | 18.2+ | Industry standard SPA |
+| Vue.js | 3+ | Progressive framework |
+| Angular | 17+ | Enterprise applications |
+| Svelte | 4+ | Compiler-based approach |
 
 ### Meta-Frameworks
-- **Next.js** - React with SSR and SSG
-- **Nuxt** - Vue with SSR capabilities
-- **SvelteKit** - Svelte framework
-- **Remix** - Focus on web fundamentals
-
-### Mobile
-- **React Native** - Cross-platform mobile
-- **Flutter** - Google's framework with Dart
-- **Swift/SwiftUI** - iOS native
-- **Kotlin** - Android native
+| Framework | Based On | Key Feature |
+|-----------|----------|-------------|
+| Next.js | React | SSR, SSG, App Router |
+| Nuxt | Vue | Full-stack Vue |
+| SvelteKit | Svelte | File-based routing |
+| Remix | React | Web fundamentals |
 
 ### State Management
-- React Context API
-- Redux & Redux Toolkit
-- Zustand, Jotai, Recoil
-- Vue Composition API
-- Pinia (Vue store)
-- MobX, Akita
+- React: Context API, Redux Toolkit, Zustand, Jotai
+- Vue: Pinia, Composition API
+- Angular: NgRx, Akita
 
-### Styling
-- Tailwind CSS
-- CSS Modules
-- Styled Components
-- Emotion
-- SASS/SCSS
-- BEM methodology
+### Styling Solutions
+- Tailwind CSS (utility-first)
+- CSS Modules (scoped styles)
+- Styled Components / Emotion (CSS-in-JS)
+- SASS/SCSS (preprocessor)
 
-### Testing
-- Jest - Unit testing
-- React Testing Library - Component testing
-- Cypress/Playwright - E2E testing
-- Vitest - Vite-native testing
+### Testing Stack
+| Tool | Purpose |
+|------|---------|
+| Jest | Unit testing |
+| React Testing Library | Component testing |
+| Cypress | E2E testing |
+| Playwright | Cross-browser E2E |
+| Vitest | Vite-native testing |
 
 ### Build Tools
-- Vite - Lightning-fast builds
-- Webpack - Modular bundling
+- Vite - Lightning-fast HMR
+- Webpack 5 - Modular bundling
 - Turbopack - Next-gen bundler
 - esbuild - Fast transpiler
 
-## 🎓 Skill Development Areas
+## Troubleshooting Guide
 
-### Technical Skills
-- [ ] Master HTML5 semantics
-- [ ] Advanced CSS (Grid, Flexbox, animations)
-- [ ] JavaScript async patterns
-- [ ] TypeScript intermediate/advanced
-- [ ] Component-driven development
-- [ ] State management patterns
-- [ ] API integration and data fetching
-- [ ] Performance optimization
-- [ ] Security best practices
-- [ ] Testing pyramid
+### Common Failure Modes
 
-### Professional Skills
-- [ ] Responsive design
-- [ ] Accessibility (WCAG 2.1)
-- [ ] Progressive enhancement
-- [ ] Web vitals optimization
-- [ ] Cross-browser compatibility
-- [ ] Build process optimization
-- [ ] Code splitting and lazy loading
-- [ ] SEO best practices
+| Issue | Root Cause | Solution |
+|-------|------------|----------|
+| Hydration mismatch | SSR/client content differs | Use `useEffect` for client-only code |
+| Infinite re-renders | Missing dependency array | Add proper deps to `useEffect` |
+| Memory leaks | Uncleared subscriptions | Cleanup in `useEffect` return |
+| Slow initial load | Large bundle size | Implement code splitting |
+| Layout shift (CLS) | Missing image dimensions | Always specify width/height |
 
-### Soft Skills
-- [ ] Collaboration with designers
-- [ ] Code review participation
-- [ ] Technical documentation
-- [ ] Problem-solving approach
-- [ ] Continuous learning mindset
-
-## 📊 Career Progression
+### Debug Checklist
 
 ```
-Frontend Developer
-    ↓
-Senior Frontend Developer (3-5 years)
-    ↓
-Frontend Architect / Tech Lead (5-8 years)
-    ↓
-Engineering Manager / CTO (8+ years)
+□ Check browser console for errors
+□ Verify component props and types
+□ Inspect React DevTools state
+□ Check Network tab for failed requests
+□ Validate CSS specificity issues
+□ Test in incognito (cache issues)
+□ Verify environment variables
+□ Check build output for warnings
 ```
 
-## 🚀 Quick Start Projects
+### Log Interpretation
 
-### Beginner
-- [ ] Portfolio website (HTML, CSS, JS)
-- [ ] Todo application (React)
-- [ ] Weather app with API (React)
-- [ ] Product showcase (Next.js)
+```typescript
+// Error patterns and meanings
+"Maximum update depth exceeded"  → Infinite loop in useEffect
+"Cannot read property of null"   → Accessing before render
+"Invalid hook call"              → Hook rules violation
+"Hydration failed"               → SSR mismatch
+```
 
-### Intermediate
-- [ ] E-commerce frontend (React, Redux)
-- [ ] Real-time chat interface (WebSockets)
-- [ ] Dashboard with charts (TypeScript)
-- [ ] Social media feed (infinite scroll)
+### Recovery Procedures
 
-### Advanced
-- [ ] Full-stack SaaS application
-- [ ] Real-time collaboration tool
-- [ ] Mobile app (React Native/Flutter)
-- [ ] Design system library
+1. **State Corruption**: Reset component state, clear localStorage
+2. **Build Failure**: Clear cache (`rm -rf node_modules/.cache`)
+3. **Type Errors**: Run `tsc --noEmit` for full check
+4. **Style Issues**: Check CSS cascade, use DevTools
 
-## 📖 Best Practices
+## Best Practices
 
-1. **Semantic HTML** - Use proper HTML elements
-2. **Mobile First** - Design for mobile, enhance for desktop
-3. **Accessibility** - WCAG 2.1 AAA compliance
-4. **Performance** - Track Core Web Vitals
-5. **Testing** - 80%+ code coverage
-6. **Type Safety** - Use TypeScript
-7. **Code Quality** - ESLint, Prettier, git hooks
-8. **Documentation** - Storybook for components
+| Practice | Implementation |
+|----------|----------------|
+| Semantic HTML | Use proper elements for accessibility |
+| Mobile First | Design for mobile, enhance for desktop |
+| Accessibility | WCAG 2.1 AAA compliance target |
+| Performance | Track Core Web Vitals (LCP, FID, CLS) |
+| Testing | Aim for 80%+ code coverage |
+| Type Safety | Strict TypeScript configuration |
+| Code Quality | ESLint, Prettier, Husky git hooks |
+| Documentation | Storybook for component library |
 
-## 🔗 Related Skills
+## Bonded Skills
 
-See `skills/frontend/SKILL.md` for detailed technical guides and code examples.
+| Skill | Bond Type | Purpose |
+|-------|-----------|---------|
+| fundamentals | PRIMARY_BOND | TypeScript basics |
+| advanced-types | PRIMARY_BOND | Advanced TypeScript |
+| frontend | PRIMARY_BOND | Frontend technologies |
 
-## 📚 Learning Resources
+## Learning Resources
 
 - [MDN Web Docs](https://developer.mozilla.org/)
 - [React Documentation](https://react.dev/)
 - [Vue.js Guide](https://vuejs.org/)
 - [Next.js Documentation](https://nextjs.org/)
-- [Flutter Documentation](https://flutter.dev/)
 - [Web.dev Learning](https://web.dev/learn/)
-- [Accessibility Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)

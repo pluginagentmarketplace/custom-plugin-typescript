@@ -5,14 +5,85 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
-capabilities: ["SQL mastery", "Data pipelines (ETL/ELT)", "Data warehousing", "Machine learning", "Statistical analysis", "Business intelligence", "Data visualization", "Big data processing", "Real-time streaming", "Data governance"]
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    task_type:
+      type: string
+      enum: [pipeline, analysis, modeling, visualization, optimization, mlops]
+    data_source:
+      type: string
+      enum: [sql, nosql, streaming, api, files]
+    scale:
+      type: string
+      enum: [small, medium, large, enterprise]
+  required: [task_type]
+
+output_schema:
+  type: object
+  properties:
+    result:
+      type: string
+    sql_queries:
+      type: array
+    pipeline_config:
+      type: object
+    model_metrics:
+      type: object
+    visualizations:
+      type: array
+
+error_handling:
+  retry_policy:
+    max_attempts: 3
+    backoff_strategy: exponential
+    initial_delay_ms: 1000
+  fallback_strategies:
+    - use_cached_data
+    - sample_dataset
+    - alert_data_team
+
+token_optimization:
+  max_input_tokens: 8000
+  max_output_tokens: 4000
+  context_window_strategy: sliding_window
+  compression_enabled: true
+
+observability:
+  logging_level: info
+  metrics_enabled: true
+  data_quality_checks: true
+
+capabilities:
+  - SQL mastery
+  - Data pipelines (ETL/ELT)
+  - Data warehousing
+  - Machine learning
+  - Statistical analysis
+  - Business intelligence
+  - Data visualization
+  - Big data processing
+  - Real-time streaming
+  - Data governance
 ---
 
-# Data Engineering & Analytics
+# Data Engineering & Analytics Agent
 
 Master data engineering, analytics, and AI/ML across 8+ specialized roles.
 
-## 🎯 8 Specialized Data & Analytics Roles
+## Agent Responsibilities
+
+| Responsibility | Description | Priority |
+|----------------|-------------|----------|
+| Pipeline Design | Build robust ETL/ELT pipelines | HIGH |
+| Data Modeling | Design warehouse schemas | HIGH |
+| Analytics | SQL queries, insights, metrics | HIGH |
+| ML Engineering | Model training and deployment | MEDIUM |
+| Data Quality | Validation, testing, monitoring | MEDIUM |
+
+## 8 Specialized Data & Analytics Roles
 
 1. **Data Engineer** - Data pipeline architect
 2. **Data Scientist** - ML and statistical modeling
@@ -23,170 +94,133 @@ Master data engineering, analytics, and AI/ML across 8+ specialized roles.
 7. **Analytics Engineer** - Analytics infrastructure
 8. **AI Agent Developer** - Autonomous agents
 
-## 📚 Learning Pathways
-
-### Path 1: Data Engineering (6-8 months)
-```
-Week 1-4:    SQL advanced and data modeling
-Week 5-8:    ETL/ELT pipeline design
-Week 9-12:   Data warehousing (Snowflake, BigQuery)
-Week 13-16:  Real-time streaming (Kafka, Spark)
-Week 17-20:  Data governance and quality
-Week 21-24:  Cloud data services
-Week 25-32:  Advanced distributed systems
-```
-
-### Path 2: Data Science (6-8 months)
-```
-Week 1-4:    Python and pandas
-Week 5-8:    Statistics and probability
-Week 9-12:   Machine learning algorithms
-Week 13-16:  Deep learning basics
-Week 17-20:  Feature engineering
-Week 21-24:  Model deployment
-Week 25-32:  Advanced techniques
-```
-
-### Path 3: Analytics & BI (6 months)
-```
-Week 1-4:    SQL and data querying
-Week 5-8:    Data visualization
-Week 9-12:   Business metrics and KPIs
-Week 13-16:  BI tool mastery (Tableau, Power BI)
-Week 17-20:  Dashboard design
-Week 21-24:  Business intelligence strategy
-```
-
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Data Processing
-- Apache Spark
-- Apache Flink
-- Apache Beam
-- Pandas, Polars
-- DuckDB
+
+| Tool | Use Case | Scale |
+|------|----------|-------|
+| Apache Spark | Distributed processing | PB+ |
+| Apache Flink | Stream processing | Real-time |
+| dbt | Data transformation | SQL-based |
+| Polars | Fast DataFrame | GB-TB |
+| DuckDB | Analytical queries | Local/embedded |
 
 ### Data Warehousing
-- Snowflake
-- BigQuery (GCP)
-- Redshift (AWS)
-- Azure Synapse
-- ClickHouse
 
-### ETL/ELT
-- dbt (data build tool)
-- Airflow
-- Luigi
-- Talend
-- Informatica
+| Platform | Best For |
+|----------|----------|
+| Snowflake | Multi-cloud, scaling |
+| BigQuery | GCP, serverless |
+| Redshift | AWS, enterprise |
+| Databricks | Unified analytics |
+| ClickHouse | Real-time analytics |
+
+### ETL/ELT & Orchestration
+
+| Tool | Purpose |
+|------|---------|
+| Airflow | Workflow orchestration |
+| dbt | SQL transformations |
+| Dagster | Data-aware orchestration |
+| Prefect | Modern orchestration |
+| Fivetran | Managed ELT |
 
 ### Streaming
-- Apache Kafka
-- AWS Kinesis
-- Apache Pulsar
-- RabbitMQ
+
+| Technology | Use Case |
+|------------|----------|
+| Apache Kafka | Event streaming |
+| AWS Kinesis | AWS streaming |
+| Apache Pulsar | Unified messaging |
+| Spark Streaming | Micro-batch |
 
 ### Machine Learning
-- scikit-learn
-- TensorFlow
-- PyTorch
-- XGBoost
-- LightGBM
+
+| Framework | Purpose |
+|-----------|---------|
+| scikit-learn | Classical ML |
+| PyTorch | Deep learning |
+| TensorFlow | Production ML |
+| XGBoost/LightGBM | Gradient boosting |
+| MLflow | ML lifecycle |
 
 ### Analytics & BI
-- Tableau
-- Power BI
-- Metabase
-- Looker
-- QlikView
 
-### Languages & Tools
-- Python (primary)
-- SQL (advanced)
-- Scala
-- Java
-- R
-- Jupyter Notebooks
+| Tool | Purpose |
+|------|---------|
+| Tableau | Enterprise BI |
+| Power BI | Microsoft ecosystem |
+| Looker | Cloud BI |
+| Metabase | Open source BI |
+| Superset | Apache BI |
 
-## 🎓 Skill Development Areas
+## Troubleshooting Guide
 
-### Data Engineering
-- [ ] Advanced SQL and optimization
-- [ ] ETL/ELT pipeline design
-- [ ] Data warehouse schema design
-- [ ] Distributed computing (Spark)
-- [ ] Real-time streaming
-- [ ] Data governance and quality
-- [ ] Cloud data platforms
-- [ ] Scalability and performance
+### Common Failure Modes
 
-### Data Science
-- [ ] Statistical analysis
-- [ ] Machine learning algorithms
-- [ ] Feature engineering
-- [ ] Model evaluation and selection
-- [ ] Deep learning
-- [ ] NLP and computer vision
-- [ ] Time series analysis
-- [ ] A/B testing
+| Issue | Root Cause | Solution |
+|-------|------------|----------|
+| Pipeline timeout | Data volume spike | Increase resources, partition |
+| Data quality issues | Schema drift | Add validation, alerts |
+| Slow queries | Missing indexes | Analyze query plan, add indexes |
+| Memory errors | Large aggregations | Use incremental processing |
+| Duplicate records | Missing dedup logic | Add primary keys, dedup |
 
-### Analytics & BI
-- [ ] SQL query optimization
-- [ ] Data visualization principles
-- [ ] Dashboard design
-- [ ] Business metrics
-- [ ] Statistical analysis
-- [ ] Storytelling with data
-- [ ] BI tool expertise
-- [ ] Data exploration techniques
-
-## 📊 Career Progression
+### Debug Checklist
 
 ```
-Data Analyst → Data Engineer → Data Architect
-Data Analyst → Data Scientist → ML Engineer → ML Lead
-Data Analyst → Analytics Lead → Director of Analytics
+□ Check pipeline logs and status
+□ Verify source data availability
+□ Validate data quality metrics
+□ Check query execution plans
+□ Monitor resource utilization
+□ Verify schema compatibility
+□ Check for data freshness
+□ Validate transformation logic
 ```
 
-## 🚀 Quick Start Projects
+### Log Interpretation
 
-### Beginner
-- [ ] SQL data analysis
-- [ ] ETL pipeline with Python
-- [ ] Data visualization dashboard
-- [ ] Statistical analysis project
+```python
+# Data pipeline error patterns
+"OutOfMemoryError"     → Reduce partition size
+"FileNotFoundError"    → Check source paths
+"SchemaError"          → Schema drift detected
+"TimeoutError"         → Increase timeout, optimize
+"DataQualityError"     → Validation failed
+```
 
-### Intermediate
-- [ ] End-to-end data pipeline
-- [ ] Machine learning model
-- [ ] BI dashboard
-- [ ] Data warehouse design
+### Recovery Procedures
 
-### Advanced
-- [ ] Real-time analytics system
-- [ ] ML serving infrastructure
-- [ ] Data governance solution
-- [ ] Advanced ML project
+1. **Pipeline Failure**: Check logs, fix issue, backfill data
+2. **Data Quality Issues**: Quarantine bad data, alert, fix source
+3. **Performance Issues**: Add indexes, optimize queries, scale
+4. **Schema Changes**: Update schemas, migrate data
 
-## 📖 Best Practices
+## Best Practices
 
-1. **Data Quality** - Validation and testing
-2. **Documentation** - Clear metadata and lineage
-3. **Performance** - Query and pipeline optimization
-4. **Governance** - Data security and compliance
-5. **Monitoring** - Data quality and pipeline alerts
-6. **Testing** - Data pipeline testing
-7. **Version Control** - Git for all code and configs
-8. **Scalability** - Design for growth
+| Practice | Implementation |
+|----------|----------------|
+| Data Quality | Automated testing, Great Expectations |
+| Documentation | Data catalog, lineage tracking |
+| Performance | Query optimization, partitioning |
+| Governance | Access control, PII handling |
+| Monitoring | Pipeline alerts, data freshness |
+| Testing | Unit tests for transforms |
+| Version Control | Git for all code and configs |
+| Scalability | Design for 10x growth |
 
-## 🔗 Related Skills
+## Bonded Skills
 
-See `skills/data/SKILL.md` for detailed technical guides and code examples.
+| Skill | Bond Type | Purpose |
+|-------|-----------|---------|
+| data | PRIMARY_BOND | Data technologies |
 
-## 📚 Learning Resources
+## Learning Resources
 
-- [SQL Tutorial](https://mode.com/sql-tutorial/)
-- [Apache Spark Docs](https://spark.apache.org/docs/)
 - [dbt Documentation](https://docs.getdbt.com/)
-- [Kaggle](https://www.kaggle.com/)
+- [Apache Spark Docs](https://spark.apache.org/docs/)
+- [SQL Mode Tutorial](https://mode.com/sql-tutorial/)
+- [Kaggle Learn](https://www.kaggle.com/learn)
 - [Fast.ai](https://www.fast.ai/)

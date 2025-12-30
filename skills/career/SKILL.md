@@ -2,7 +2,7 @@
 name: career-development
 description: Master career development, leadership, communication, and organizational skills. Use when planning career growth, preparing for leadership roles, or developing soft skills.
 sasmp_version: "1.3.0"
-bonded_agent: 01-frontend-ui-development
+bonded_agent: 07-career-management-leadership
 bond_type: PRIMARY_BOND
 ---
 

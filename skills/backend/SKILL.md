@@ -2,7 +2,7 @@
 name: backend-technologies
 description: Master backend development with Node.js, Python, Java, Go, Rust, API design, databases, and microservices. Use when building APIs, designing systems, or learning backend frameworks.
 sasmp_version: "1.3.0"
-bonded_agent: 01-frontend-ui-development
+bonded_agent: 02-typescript-backend
 bond_type: PRIMARY_BOND
 ---
 

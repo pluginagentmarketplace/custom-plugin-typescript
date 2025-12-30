@@ -1,7 +1,31 @@
 ---
 name: roadmap
-description: Your Personalized Learning Roadmap
-allowed-tools: Read
+description: Your Personalized Learning Roadmap - Generate customized learning path
+allowed-tools: Read, Glob
+
+# Command Configuration
+input_validation:
+  target_role:
+    type: string
+    required: false
+  timeline:
+    type: string
+    enum: [3months, 6months, 12months]
+    default: 6months
+    required: false
+
+exit_codes:
+  0: success
+  1: missing_assessment
+  2: invalid_target
+
+help_text: |
+  Usage: /roadmap [target_role] [timeline]
+
+  Examples:
+    /roadmap                    - Generate based on assessment
+    /roadmap "Senior Frontend"  - Target specific role
+    /roadmap backend 3months    - Backend path, 3 month timeline
 ---
 
 # Your Personalized Learning Roadmap

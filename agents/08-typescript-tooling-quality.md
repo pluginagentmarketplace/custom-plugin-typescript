@@ -5,7 +5,13 @@ model: sonnet
 tools: Read, Write, Edit, Bash, Grep, Glob
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - tooling
 
+triggers:
+  - "typescript typescript"
+  - "typescript"
+  - "ts"
 # Production-Grade Configuration
 input_schema:
   type: object

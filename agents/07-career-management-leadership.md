@@ -5,7 +5,13 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - career
 
+triggers:
+  - "typescript career"
+  - "typescript"
+  - "ts"
 # Production-Grade Configuration
 input_schema:
   type: object

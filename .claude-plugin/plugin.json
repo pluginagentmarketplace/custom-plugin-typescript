@@ -42,6 +42,5 @@
     "./commands/explore.md",
     "./commands/roadmap.md",
     "./commands/start.md"
-  ],
-  "hooks": "./hooks/hooks.json"
+  ]
 }
